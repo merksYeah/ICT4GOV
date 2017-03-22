@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/ICT4GOV2">
+<Resource driverClassName="com.mysql.jdbc.Driver" initialSize="100" maxActive="10" maxIdle="10" maxWait="10" name="jdbc/ict4govDB" password="omegaman123" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/mydb" username="root"/>
+</Context>
