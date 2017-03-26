@@ -57,28 +57,28 @@
                         <div class="row form-group">
                             <div class="col-sm-12">
                                 <label class="control-label">Email Address:</label>
-                                <input type="email" class="form-control" placeholder="Enter email" required="true" name="email">
+                                <input type="email" class="form-control" placeholder="Ex.example@example.com" required="true" name="email">
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col-sm-8">
                                 <label class="control-label">Phone number:</label>
-                                <input type="number" class="form-control" placeholder="Enter phone number" required="true" name="phone">
+                                <input type="number" class="form-control" placeholder="Ex.5258323" required="true" name="phone">
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col-sm-8">
                                 <label class="control-label">Mobile Number:</label>
-                                <input type="number" class="form-control" placeholder="Enter mobile number" required="true" name="mobile">
+                                <input type="number" class="form-control" placeholder="Ex.09177003212" required="true" name="mobile">
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col-sm-8">
                                 <label class="control-label">Plate No:</label>
-                                <input type="text" class="form-control" placeholder="Enter plate number" required="true" name="plate_number">
+                                <input type="text" class="form-control" placeholder="Ex.ADD1234" required="true" name="plate_number">
                             </div>
                         </div>
 

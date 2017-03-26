@@ -14,7 +14,7 @@ import models.Attachment;
  * @author migue
  */
 public interface ApplicationDAO {
-    public int createApplication(String applicant_name);
+    public int createApplication(String first_name, String middle_name, String last_name);
     public ArrayList<Application> getApplications();
     public Application getApplicationByCase(Application app);
     public ArrayList<Attachment> getAttachmentsByCase(Application app);

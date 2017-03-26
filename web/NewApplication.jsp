@@ -46,8 +46,20 @@
 
                     <div class="row form-group">
                         <div class="col-sm-12">
-                            <label class="control-label">Name:</label>
-                            <input type="text" class="form-control" placeholder="Enter name" required="true" name="application_name">
+                            <label class="control-label">First Name:</label>
+                            <input type="text" class="form-control" placeholder="Enter name" required="true" name="first_name">
+                        </div>
+                    </div>
+                     <div class="row form-group">
+                        <div class="col-sm-12">
+                            <label class="control-label">Middle Name:</label>
+                            <input type="text" class="form-control" placeholder="Enter name" required="true" name="middle_name">
+                        </div>
+                    </div>
+                     <div class="row form-group">
+                        <div class="col-sm-12">
+                            <label class="control-label">Last Name:</label>
+                            <input type="text" class="form-control" placeholder="Enter name" required="true" name="last_name">
                         </div>
                     </div>
                      <div class="row form-group">
@@ -58,8 +70,37 @@
 				</div>
 				 <div id="right-half">
                     <div class="input_fields_wrap">
-                        <button class="add_field_button btn btn-warning" style="">Add File Input</button>
-                        <div><input type="file" name="file" style="margin-top: 10px;" required="true"> <a href="#" class="remove_field">Remove</a></div>
+                         <div class="row form-group">
+                        <div class="col-sm-12">
+                            <label class="control-label">Verified Petition:</label>
+                            <input type="file" name="file" style="margin-top: 10px;" required="true"> 
+                        </div>
+                        </div>
+                        <div class="row form-group">
+                        <div class="col-sm-12">
+                            <label class="control-label">Valid Government-Issued Id</label>
+                            <input type="file" name="file" style="margin-top: 10px;" required="true"> 
+                        </div>
+                        </div>
+                        <div class="row form-group">
+                        <div class="col-sm-12">
+                            <label class="control-label">Certificate of Registration from LTO:</label>
+                            <input type="file" name="file" style="margin-top: 10px;" required="true"> 
+                        </div>
+                        </div>
+                        <div class="row form-group">
+                        <div class="col-sm-12">
+                            <label class="control-label">Certification of non-delivery of unit/s from the dealer/manufacturer:</label>
+                            <input type="file" name="file" style="margin-top: 10px;" required="true"> 
+                        </div>
+                        </div>
+                        <div class="row form-group">
+                        <div class="col-sm-12">
+                            <label class="control-label">Certification of the LTO Registering Agency:</label>
+                            <input type="file" name="file" style="margin-top: 10px;" required="true"> 
+                        </div>
+                        </div>
+      
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-teal col-sm-3" style="margin-top: 30px;">Submit</button>

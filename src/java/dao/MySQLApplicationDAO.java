@@ -24,7 +24,7 @@ import models.Franchise;
  */
 public class MySQLApplicationDAO implements ApplicationDAO {
     
-    private static final String SQL_CREATE_APPLICATION = "insert into application(applicant_name,application_status_id) values(?,?)";
+    private static final String SQL_CREATE_APPLICATION = "insert into application(first_name,application_status_id,middle_name,last_name) values(?,?,?,?)";
     private static final String SQL_GET_APPLICATIONS = "select * from application a join application_status aps on a.application_status_id = aps.application_status_id where a.application_status_id = 1 or a.application_status_id = 2 or a.application_status_id = 3";
     private static final String SQL_GET_LEGAL_APPLICATIONS = "select * from application a join application_status aps on a.application_status_id = aps.application_status_id where a.application_status_id = 4 or a.application_status_id = 6";
     private static final String SQL_GET_LEGAL_REREGISTER = "select * from renewal_application a join application_status aps on a.application_status_id = aps.application_status_id join franchise f on f.franchise_id = a.franchise_id where a.application_status_id = 4 or a.application_status_id = 6";
@@ -45,15 +45,17 @@ public class MySQLApplicationDAO implements ApplicationDAO {
     private static final String SQL_GET_REREGISTER = "select * from renewal_application a join application_status aps on a.application_status_id = aps.application_status_id join franchise f on f.franchise_id = a.franchise_id where a.application_status_id = 1 or a.application_status_id = 2 or a.application_status_id = 3";
      
     @Override
-    public int createApplication(String applicant_name) {
+    public int createApplication(String first_name, String middle_name, String last_name) {
          Connection conn = MySQLDaoFactory.createConnection();
          ResultSet rs = null;
          int key = 0;
         try {
             conn.setAutoCommit(false);
             PreparedStatement pstmst = conn.prepareStatement(SQL_CREATE_APPLICATION,PreparedStatement.RETURN_GENERATED_KEYS);
-            pstmst.setString(1, applicant_name);
+            pstmst.setString(1, first_name);
             pstmst.setInt(2, 1);
+            pstmst.setString(3, middle_name);
+            pstmst.setString(4, last_name);
             pstmst.executeUpdate();
             rs = pstmst.getGeneratedKeys();
             conn.commit();
@@ -81,7 +83,7 @@ public class MySQLApplicationDAO implements ApplicationDAO {
             while(rs.next()){
                 Application app = new Application();
                 app.setCaseNumber(rs.getInt("case_number"));
-                app.setApplicantName(rs.getString("applicant_name"));
+                app.setApplicantName(rs.getString("first_name") + " " + rs.getString("middle_name") + " " + rs.getString("last_name"));
                 app.setDateReceived(rs.getString("date_received"));
                 app.setDateUpdated(rs.getString("date_updated"));
                 app.setStatus(rs.getString("application_status_desc"));
@@ -106,7 +108,7 @@ public class MySQLApplicationDAO implements ApplicationDAO {
             while(rs.next()){
                 Application app = new Application();
                 app.setCaseNumber(rs.getInt("case_number"));
-                app.setApplicantName(rs.getString("applicant_name"));
+                app.setApplicantName(rs.getString("first_name") + " " + rs.getString("middle_name") + " " + rs.getString("last_name"));
                 app.setDateReceived(rs.getString("date_received"));
                 app.setDateUpdated(rs.getString("date_updated"));
                 app.setStatus(rs.getString("application_status_desc"));
@@ -129,7 +131,7 @@ public class MySQLApplicationDAO implements ApplicationDAO {
              rs = pstmt.executeQuery();
             while(rs.next()){
                 app.setCaseNumber(rs.getInt("case_number"));
-                app.setApplicantName(rs.getString("applicant_name"));
+                app.setApplicantName(rs.getString("first_name") + " " + rs.getString("middle_name") + " " + rs.getString("last_name"));
                 app.setDateReceived(rs.getString("date_received"));
                 app.setDateUpdated(rs.getString("date_updated"));
                 app.setHearingDate(rs.getString("hearing_date"));
@@ -235,7 +237,7 @@ public class MySQLApplicationDAO implements ApplicationDAO {
             while(rs.next()){
                 Application app = new Application();
                 app.setCaseNumber(rs.getInt("case_number"));
-                app.setApplicantName(rs.getString("applicant_name"));
+                app.setApplicantName(rs.getString("first_name") + " " + rs.getString("middle_name") + " " + rs.getString("last_name"));
                 app.setDateReceived(rs.getString("date_received"));
                 app.setDateUpdated(rs.getString("date_updated"));
                 app.setStatus(rs.getString("application_status_desc"));

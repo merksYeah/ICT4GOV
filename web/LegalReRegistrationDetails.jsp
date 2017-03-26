@@ -105,24 +105,28 @@
                     </div>
 					</div>
 					<div id="right-half">
-                        <div class="row form-group">
-                            <div class="col-sm-5">
-                                <div>
-                                <label>Hearing Date:  </label>
-                                <input type="datetime-local" name="hearing_date">
-                                </div> 
-                            </div>
-                        </div>
-					<div class="row form-group">
-                            <div class="col-sm-5">
-                                <label>Status:</label>
-                                <select class="form-control" name="status">
-                                    <option value=""></option>
-                                    <option value="6">Hearing Date Set</option>
-                                    <option value="7">Office of the Executive Director: Reviewing Order</option>
-                                </select>
-                            </div>
-                        </div>
+                       <c:choose>
+                                                <c:when test="${applicant.status eq 'Legal Division'}">
+                                                  <div class="row form-group">
+                                                    <div class="col-sm-5">
+                                                        <div>
+                                                        <label>Hearing Date:  </label>
+                                                        <input type="datetime-local" name="hearing_date">
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <div class="row form-group">
+                                                    <div class="col-sm-7">
+                                                        <label>Status:</label>
+                                                        <select class="form-control" name="status">                                                            
+                                                            <option value="7">Office of the Executive Director: Reviewing Order</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                </c:otherwise>
+                                            </c:choose>
 						<button type="submit" class="btn btn-primary btn-teal col-sm-3 ">Submit</button>
 					</div>
 

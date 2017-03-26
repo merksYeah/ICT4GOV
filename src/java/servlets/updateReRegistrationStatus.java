@@ -46,7 +46,7 @@ public class updateReRegistrationStatus extends HttpServlet {
            User user = (User) session.getAttribute("login");
            if(user.getRole().equals("tecnical evaluation")){
                  System.out.println("hey");
-             if(!request.getParameter("inspection_date").isEmpty() && request.getParameter("status").equals("5")){
+             if(request.getParameter("inspection_date") != null){
                  System.out.println(request.getParameter("inspection_date").isEmpty());
                  app.setCaseNumber((int) session.getAttribute("case_num"));
                  app.setStatusId(Integer.parseInt(request.getParameter("status")));
@@ -64,7 +64,7 @@ public class updateReRegistrationStatus extends HttpServlet {
              }
             }
            else if(user.getRole().equals("legal")){
-               if(!request.getParameter("hearing_date").isEmpty()){
+               if(request.getParameter("hearing_date") != null){
                  app.setCaseNumber((int) session.getAttribute("case_num"));
                  app.setStatusId(Integer.parseInt(request.getParameter("status")));
                  app.setHearingDate(request.getParameter("hearing_date"));

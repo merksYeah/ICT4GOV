@@ -56,8 +56,31 @@
 				</div>
 				 <div id="right-half">
                     <div class="input_fields_wrap">
-                        <button class="add_field_button btn btn-warning" style="">Add File Input</button>
-                        <div><input type="file" name="file" style="margin-top: 10px;" required="true"> <a href="#" class="remove_field">Remove</a></div>
+                         <div class="row form-group">
+                        <div class="col-sm-12">
+                            <label class="control-label">Verified Petition:</label>
+                            <input type="file" name="file" style="margin-top: 10px;" required="true"> 
+                        </div>
+                        </div>
+                        <div class="row form-group">
+                        <div class="col-sm-12">
+                            <label class="control-label">Valid Government-Issued Id</label>
+                            <input type="file" name="file" style="margin-top: 10px;" required="true"> 
+                        </div>
+                        </div>
+                        <div class="row form-group">
+                        <div class="col-sm-12">
+                            <label class="control-label">Certificate of Registration from LTO:</label>
+                            <input type="file" name="file" style="margin-top: 10px;" required="true"> 
+                        </div>
+                        </div>
+                        <div class="row form-group">
+                        <div class="col-sm-12">
+                            <label class="control-label">Original and Copy of Inspection Report for Road Worthiness</label>
+                            <input type="file" name="file" style="margin-top: 10px;" required="true"> 
+                        </div>
+                        </div>
+                       
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-teal col-sm-3" style="margin-top: 30px;">Submit</button>

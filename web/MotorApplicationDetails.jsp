@@ -106,12 +106,20 @@
 					<div id="right-half">
                         
 					<div class="row form-group">
-                            <div class="col-sm-5">
+                            <div class="col-sm-7">
                                 <label>Status:</label>
                                 <select class="form-control" name="status">
-                                    <option value=""></option>
-                                    <option value="3">Technical Evaluation Division: Preparing Order</option>
-                                    <option value="8">Application Approved</option>
+                                    <c:choose>
+                                        <c:when test="${applicant.status eq 'Inspection Date Set'}">
+                                            <option value="3">Technical Evaluation Division: Preparing Order</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="8">Application Approved</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    
+                                    
+                                    
                                 </select>
                             </div>
                         </div>

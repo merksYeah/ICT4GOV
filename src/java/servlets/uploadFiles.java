@@ -51,7 +51,7 @@ public class uploadFiles extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             DAOFactory factory = DAOFactory.getDAOFactory(1);
             ApplicationDAO applicationDAO = factory.getApplicationDAO();
-            int key = applicationDAO.createApplication(request.getParameter("application_name"));
+            int key = applicationDAO.createApplication(request.getParameter("first_name"),request.getParameter("middle_name"), request.getParameter("last_name"));
             Connection conn = null;
              try {
             // Connection to Database
@@ -62,6 +62,7 @@ public class uploadFiles extends HttpServlet {
             String description = request.getParameter("description");
             // Part list (multi files).
             for (Part part : request.getParts()) {
+                System.out.println(extractFileName(part));
                 String fileName = extractFileName(part);
                 if (fileName != null && fileName.length() > 0) {
                     // File data

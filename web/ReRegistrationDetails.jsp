@@ -115,7 +115,9 @@
                     </div>
 					</div>
 					<div id="right-half">
-                        <div class="row form-group">
+                        <c:choose>
+                        <c:when test="${applicant.status eq 'Technical Evaluation Division: Waiting for Payment'}">
+                           <div class="row form-group">
                             <div class="col-sm-5">
                                 <div>
                                 <label>Inspection Date:  </label>
@@ -123,18 +125,27 @@
                                 </div> 
                             </div>
                         </div>
-					<div class="row form-group">
-                            <div class="col-sm-5">
+                        </c:when>
+                            <c:otherwise>
+                                <div class="row form-group">
+                            <div class="col-sm-7">
                                 <label>Status:</label>
                                 <select class="form-control" name="status">
-                                    <option value=""></option>
-                                    <option value="2">Technical Evaluation Division: Waiting for Payment</option>
-                                    <option value="4">Legal Division</option>
-                                    <option value="5">Inspection Date Set</option>
-									
+                                    <c:choose>
+                                        <c:when test="${applicant.status eq 'Technical Evaluation Division: Veryfing Documents'}">
+                                            <option value="2">Technical Evaluation Division: Waiting for Payment</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="4">Legal Division</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    
+  		
                                 </select>
                             </div>
                         </div>
+                            </c:otherwise>
+                    </c:choose>
 						<button type="submit" class="btn btn-primary btn-teal col-sm-3 ">Submit</button>
 					</div>
 

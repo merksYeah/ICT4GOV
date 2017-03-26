@@ -46,10 +46,10 @@ public class updateApplicationStatus extends HttpServlet {
            User user = (User) session.getAttribute("login");
            if(user.getRole().equals("tecnical evaluation")){
                  System.out.println("hey");
-             if(!request.getParameter("inspection_date").isEmpty() && request.getParameter("status").equals("5")){
+             if(request.getParameter("inspection_date") != null){
                  System.out.println(request.getParameter("inspection_date").isEmpty());
                  app.setCaseNumber((int) session.getAttribute("case_num"));
-                 app.setStatusId(Integer.parseInt(request.getParameter("status")));
+                 app.setStatusId(5);
                  app.setInspectionDate(request.getParameter("inspection_date"));
                  applicationDAO.updateApplicationInspection(app);
                  rd = request.getRequestDispatcher("/showTedApplications");
@@ -64,9 +64,9 @@ public class updateApplicationStatus extends HttpServlet {
              }
             }
            else if(user.getRole().equals("legal")){
-               if(!request.getParameter("hearing_date").isEmpty()){
+               if(request.getParameter("hearing_date") != null){
                  app.setCaseNumber((int) session.getAttribute("case_num"));
-                 app.setStatusId(Integer.parseInt(request.getParameter("status")));
+                 app.setStatusId(6);
                  app.setHearingDate(request.getParameter("hearing_date"));
                  applicationDAO.updateApplicationHearing(app);
                  rd = request.getRequestDispatcher("/showLegalApplications");
